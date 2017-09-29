@@ -25,11 +25,16 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void toGroceries(View view) {
-
+        Intent intent = new Intent(this, GroceryShopping.class);
+        startActivity(intent);
     }
 
     public void toMeals(View view) {
         Intent intent = new Intent(this, MealsScreen.class);
         startActivity(intent);
+    }
+
+    public void showCredits(View view) {
+        // pop up screen for title
     }
 }
