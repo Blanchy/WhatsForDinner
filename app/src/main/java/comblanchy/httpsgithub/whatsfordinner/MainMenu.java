@@ -14,11 +14,14 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void toNewDish(View view) {
+
         Intent intent = new Intent(this, NewDishScreen.class);
+        startActivity(intent);
     }
 
     public void toRecipes(View view) {
         Intent intent = new Intent(this, RecipeScreen.class);
+        startActivity(intent);
     }
 
     public void toGroceries(View view) {
@@ -26,6 +29,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void toMeals(View view) {
-
+        Intent intent = new Intent(this, MealsScreen.class);
+        startActivity(intent);
     }
 }

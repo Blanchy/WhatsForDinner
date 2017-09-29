@@ -6,13 +6,66 @@
     android:layout_height="match_parent"
     tools:context="comblanchy.httpsgithub.whatsfordinner.MainMenu">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@android:color/holo_orange_dark"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="322dp"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:id="@+id/gridLayout"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <ImageButton
+            android:id="@+id/NewDish"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="toNewDish"
+            app:srcCompat="@android:color/holo_blue_bright" />
+
+        <ImageButton
+            android:id="@+id/Recipes"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="toRecipes"
+            app:srcCompat="@color/colorPrimary" />
+
+        <ImageButton
+            android:id="@+id/Meals"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="toMeals"
+            app:srcCompat="@android:color/holo_green_light"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="106dp" />
+    </GridLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -24,33 +77,27 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/buttonnew"
-                android:layout_width="wrap_content"
-                android:layout_height="113dp"
-                app:srcCompat="@mipmap/ic_launcher" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_row="0"
-                app:srcCompat="@color/colorAccent" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+        </TableRow>
     </TableLayout>
+
 </android.support.constraint.ConstraintLayout>
