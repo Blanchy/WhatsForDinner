@@ -46,8 +46,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_weight="1"
+                android:hint="Recipe Name"
                 android:inputType="textNoSuggestions"
-                android:text="Recipe Name"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
 
@@ -99,6 +99,60 @@
                 android:layout_weight="1"
                 tools:layout_editor_absoluteX="35dp"
                 tools:layout_editor_absoluteY="365dp" />
+
+            <Spinner
+                android:id="@+id/ingred4"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_weight="1"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="211dp" />
+
+            <Spinner
+                android:id="@+id/ingred5"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_weight="1"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="288dp" />
+
+            <Spinner
+                android:id="@+id/ingred6"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_weight="1"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="365dp" />
+
+            <Spinner
+                android:id="@+id/ingred7"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_weight="1"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="211dp" />
+
+            <Spinner
+                android:id="@+id/ingred8"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_weight="1"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="288dp" />
+
+            <Spinner
+                android:id="@+id/ingred9"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_weight="1"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="365dp" />
+
+            <Spinner
+                android:id="@+id/spinner7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <EditText
                 android:id="@+id/directions"
