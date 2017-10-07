@@ -8,112 +8,81 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:srcCompat="@android:color/holo_orange_dark"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="0dp"
-        android:layout_height="240dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginStart="18dp"
-        android:columnCount="2"
-        android:rowCount="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1">
-
-        <ImageButton
-            android:id="@+id/Groceries"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_column="0"
-            android:layout_row="1"
-            android:onClick="toGroceries"
-            app:srcCompat="?attr/colorPrimaryDark"
-            tools:layout_editor_absoluteX="80dp"
-            tools:layout_editor_absoluteY="387dp" />
-
-        <ImageButton
-            android:id="@+id/Recipes"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:onClick="toRecipes"
-            app:srcCompat="@color/colorPrimary" />
-
-        <ImageButton
-            android:id="@+id/NewDish"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_column="0"
-            android:layout_row="0"
-            android:onClick="toNewDish"
-            app:srcCompat="@android:color/holo_blue_bright" />
-
-        <ImageButton
-            android:id="@+id/Meals"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_column="1"
-            android:layout_row="0"
-            android:onClick="toMeals"
-            app:srcCompat="@android:color/holo_green_light"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="106dp" />
-
-    </GridLayout>
-
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="220dp"
+        android:layout_height="115dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintBottom_creator="1"
+        app:srcCompat="@android:color/holo_orange_dark"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1">
+        tools:layout_constraintTop_creator="1" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <ImageButton
+        android:id="@+id/Groceries"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:onClick="toGroceries"
+        app:srcCompat="@mipmap/ic_grocery"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="51dp"
+        app:layout_constraintTop_toBottomOf="@+id/Meals"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="54dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="55dp"
+        app:layout_constraintVertical_bias="0.0" />
 
-        </TableRow>
+    <ImageButton
+        android:id="@+id/Recipes"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="toRecipes"
+        app:srcCompat="@mipmap/ic_recipe"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/NewDish"
+        android:layout_marginEnd="42dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="51dp" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <ImageButton
+        android:id="@+id/NewDish"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:onClick="toNewDish"
+        app:srcCompat="@mipmap/ic_boilingpot"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/Groceries"
+        app:layout_constraintRight_toRightOf="@+id/Recipes"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/Recipes"
+        app:layout_constraintTop_toTopOf="@+id/Groceries" />
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-    </TableLayout>
+    <ImageButton
+        android:id="@+id/Meals"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:onClick="toMeals"
+        app:srcCompat="@mipmap/ic_utensils"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/Groceries"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/Groceries"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,6 @@
 package comblanchy.httpsgithub.whatsfordinner;
 
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 
 import java.util.ArrayList;
@@ -13,10 +14,10 @@ public class Recipe {
 
     private String name;
     private ArrayList<String> ingredients;
-    private Image img;
+    private Drawable img;
     private String directions;
 
-    public Recipe(String name, ArrayList<String> ingredients, String directions, Image img) {
+    public Recipe(String name, ArrayList<String> ingredients, String directions, Drawable img) {
         this.name = name;
         this.ingredients = ingredients;
         this.img = img;
@@ -31,7 +32,7 @@ public class Recipe {
         return ingredients;
     }
 
-    public Image getImage() {
+    public Drawable getImage() {
         return img;
     }
 
@@ -43,7 +44,7 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public void setImg(Image img) {
+    public void setImg(Drawable img) {
         this.img = img;
     }
 

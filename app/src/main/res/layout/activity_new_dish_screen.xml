@@ -63,7 +63,7 @@
                     android:layout_height="match_parent"
                     android:layout_below="@+id/recipename"
                     android:layout_toStartOf="@+id/recipename"
-                    app:srcCompat="@mipmap/ic_launcher"
+                    app:srcCompat="@mipmap/ic_food_default"
                     tools:layout_editor_absoluteX="60dp"
                     tools:layout_editor_absoluteY="140dp" />
 
@@ -168,6 +168,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="addRecipe"
                 android:text="Add Recipe" />
 
         </LinearLayout>
