@@ -55,6 +55,8 @@ public class NewDishScreen extends AppCompatActivity {
         spinnerIngreds.add(spin9);
         spinnerIngreds.add(spin10);
 
+        /*if coming from recipes screen, set text/drawables for all elements*/
+
         ArrayList<String> sample = new ArrayList<String>();
         sample.add("nothing");
         sample.add("tums");
