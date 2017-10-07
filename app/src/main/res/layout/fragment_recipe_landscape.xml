@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:layout="@layout/fragment_recipe_list" />
+            tools:layout="@layout/fragment_recipe_portrait" />
 
         <LinearLayout
             android:id="@+id/recipedetailholder"

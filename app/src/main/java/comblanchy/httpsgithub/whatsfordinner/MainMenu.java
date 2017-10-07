@@ -10,14 +10,19 @@ import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity {
 
+    // recipes and ingredients
+    private ArrayList<Recipe> cookbook;
+    private ArrayList<String> fridge;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+
     }
 
     public void toNewDish(View view) {
-
         Intent intent = new Intent(this, NewDishScreen.class);
         startActivity(intent);
     }

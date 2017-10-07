@@ -64,7 +64,7 @@ public class NewDishScreen extends AppCompatActivity {
         sample.add("stuff");
 
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, sample);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sample);
         for (Spinner s : spinnerIngreds) {
             s.setAdapter(arrayAdapter);
         }

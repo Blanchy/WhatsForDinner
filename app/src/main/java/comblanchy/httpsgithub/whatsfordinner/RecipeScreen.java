@@ -9,6 +9,9 @@ import android.os.Bundle;
 
 public class RecipeScreen extends AppCompatActivity {
 
+    //orientation 1 = vertical, orientation 0 = horizontal
+    private int orient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,21 +26,22 @@ public class RecipeScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        RecipePortraitFragment rpf = new RecipePortraitFragment();
-        fragmentTransaction.replace(android.R.id.content, rpf);
 
-        /*
         if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             //display both fragment
+            orient = 1;
             RecipeLandscape rl = new RecipeLandscape();
             fragmentTransaction.replace(android.R.id.content, rl);
         }
         else {
+            orient = 0;
             // display one fragment
             RecipePortraitFragment rpf = new RecipePortraitFragment();
             fragmentTransaction.replace(android.R.id.content, rpf);
-        }*/
+        }
+
         fragmentTransaction.commit();
     }
+
 
 }
