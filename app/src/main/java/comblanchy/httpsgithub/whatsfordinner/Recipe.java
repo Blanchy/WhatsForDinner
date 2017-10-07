@@ -14,10 +14,40 @@ public class Recipe {
     private String name;
     private ArrayList<String> ingredients;
     private Image img;
+    private String directions;
 
-    public Recipe(String name, ArrayList<String> ingredients, Image img) {
+    public Recipe(String name, ArrayList<String> ingredients, String directions, Image img) {
         this.name = name;
         this.ingredients = ingredients;
         this.img = img;
+        this.directions = directions;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<String> getIngred() {
+        return ingredients;
+    }
+
+    public Image getImage() {
+        return img;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIngred(ArrayList<String> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setImg(Image img) {
+        this.img = img;
+    }
+
+    public void setDirections(String directions) {
+        this.directions = directions;
     }
 }

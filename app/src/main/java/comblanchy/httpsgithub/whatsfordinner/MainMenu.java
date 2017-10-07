@@ -16,6 +16,9 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        if (cookbook.size() <= 0) {
+            cookbook = new ArrayList<Recipe> ();
+        }
     }
 
     public void toNewDish(View view) {
@@ -39,6 +42,7 @@ public class MainMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /* https://stackoverflow.com/questions/38987442/how-to-make-a-simple-android-popup-window */
     public void showCredits(View view) {
         // pop up screen for title
     }
