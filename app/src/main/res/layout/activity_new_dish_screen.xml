@@ -76,6 +76,15 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/textingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ingredients"
+                android:textSize="24sp"
+                tools:text="Ingredients:" />
+
             <Spinner
                 android:id="@+id/ingred1"
                 android:layout_width="match_parent"

@@ -20,6 +20,7 @@
 
     <ImageButton
         android:id="@+id/Groceries"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_column="0"
@@ -38,8 +39,23 @@
         android:layout_marginLeft="55dp"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/titlemeals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meals"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        tools:text="Meals"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="@+id/Meals"
+        app:layout_constraintTop_toBottomOf="@+id/Meals" />
+
     <ImageButton
         android:id="@+id/Recipes"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:onClick="toRecipes"
@@ -51,8 +67,22 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="51dp" />
 
+    <TextView
+        android:id="@+id/titlerecipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recipes"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        tools:text="Recipes"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/Recipes"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/Recipes" />
+
     <ImageButton
         android:id="@+id/NewDish"
+        android:scaleType="fitCenter"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_column="0"
@@ -70,6 +100,7 @@
 
     <ImageButton
         android:id="@+id/Meals"
+        android:scaleType="fitCenter"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_column="1"
@@ -84,5 +115,35 @@
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/Groceries"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titlegroceries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Groceries"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        tools:text="Groceries"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/Groceries"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/titlenewdish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Dish"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        tools:text="New Dish"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/NewDish" />
 
 </android.support.constraint.ConstraintLayout>
