@@ -11,7 +11,8 @@
     <TextView
         android:id="@+id/groceriestext"
         android:layout_width="155dp"
-        android:layout_height="0dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="114dp"
         android:fontFamily="cursive"
         android:text="Groceries"
         android:textAlignment="center"
@@ -19,24 +20,58 @@
         android:textStyle="bold"
         tools:text="Groceries"
         tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/grocerylist"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="5dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="114dp" />
+
+    <ImageButton
+        android:id="@+id/buttonAddIngred"
+        android:layout_width="48dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:onClick="updateList"
+        app:layout_constraintBottom_toBottomOf="@+id/addIngred"
+        app:layout_constraintLeft_toRightOf="@+id/addIngred"
+        app:layout_constraintTop_toTopOf="@+id/addIngred"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/ic_add_photo"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <EditText
+        android:id="@+id/addIngred"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Add new ingredient..."
+        android:inputType="textNoSuggestions"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="33dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="55dp" />
 
     <ListView
         android:id="@+id/grocerylist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginStart="4dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/addIngred"
+        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="59dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        android:layout_marginBottom="58dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

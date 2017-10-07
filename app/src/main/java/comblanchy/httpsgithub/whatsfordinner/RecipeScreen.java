@@ -23,6 +23,10 @@ public class RecipeScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        RecipePortraitFragment rpf = new RecipePortraitFragment();
+        fragmentTransaction.replace(android.R.id.content, rpf);
+
+        /*
         if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             //display both fragment
             RecipeLandscape rl = new RecipeLandscape();
@@ -32,7 +36,7 @@ public class RecipeScreen extends AppCompatActivity {
             // display one fragment
             RecipePortraitFragment rpf = new RecipePortraitFragment();
             fragmentTransaction.replace(android.R.id.content, rpf);
-        }
+        }*/
         fragmentTransaction.commit();
     }
 
