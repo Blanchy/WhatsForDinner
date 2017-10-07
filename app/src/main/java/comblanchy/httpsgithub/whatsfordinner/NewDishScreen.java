@@ -56,9 +56,11 @@ public class NewDishScreen extends AppCompatActivity {
         spinnerIngreds.add(spin10);
 
         ArrayList<String> sample = new ArrayList<String>();
+        sample.add("nothing");
         sample.add("tums");
         sample.add("xyzzy");
         sample.add("stuff");
+
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, sample);
         for (Spinner s : spinnerIngreds) {
@@ -83,6 +85,7 @@ public class NewDishScreen extends AppCompatActivity {
         if (!duplicate) {
             //add recipe
             et = (EditText) findViewById(R.id.directions);
+            String directions = et.getText().toString();
             ImageView iv = (ImageView) findViewById(R.id.recipeimg);
             Drawable img = iv.getDrawable(); // ????
             //get spinner content
