@@ -3,21 +3,21 @@ package comblanchy.httpsgithub.whatsfordinner;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+//import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link RecipeList.OnFragmentInteractionListener} interface
+ * {@link RecipeLandscape.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link RecipeList#newInstance} factory method to
+ * Use the {@link RecipeLandscape#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecipeList extends Fragment {
+public class RecipeLandscape extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +29,7 @@ public class RecipeList extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public RecipeList() {
+    public RecipeLandscape() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class RecipeList extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RecipeList.
+     * @return A new instance of fragment RecipeLandscape.
      */
     // TODO: Rename and change types and number of parameters
-    public static RecipeList newInstance(String param1, String param2) {
-        RecipeList fragment = new RecipeList();
+    public static RecipeLandscape newInstance(String param1, String param2) {
+        RecipeLandscape fragment = new RecipeLandscape();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +64,7 @@ public class RecipeList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recipe_list, container, false);
+        return inflater.inflate(R.layout.fragment_recipe_landscape, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

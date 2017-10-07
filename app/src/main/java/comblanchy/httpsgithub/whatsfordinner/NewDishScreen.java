@@ -76,7 +76,7 @@ public class NewDishScreen extends AppCompatActivity {
         EditText et = (EditText) findViewById(R.id.recipename);
         String recipeStr = et.getText().toString();
 
-        //check against all recipes
+        //TODO: check against all recipes
         boolean duplicate = false;
         /*
         for (Recipe r : MainMenu.cookbook) {
@@ -90,7 +90,7 @@ public class NewDishScreen extends AppCompatActivity {
             String directions = et.getText().toString();
             ImageView iv = (ImageView) findViewById(R.id.recipeimg);
             Drawable img = iv.getDrawable(); // ????
-            //get spinner content
+            //TODO: get spinner content
 
         }
 

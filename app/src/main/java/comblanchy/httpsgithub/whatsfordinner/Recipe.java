@@ -36,6 +36,8 @@ public class Recipe {
         return img;
     }
 
+    public String getDirections() { return directions; }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -50,5 +52,10 @@ public class Recipe {
 
     public void setDirections(String directions) {
         this.directions = directions;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }
