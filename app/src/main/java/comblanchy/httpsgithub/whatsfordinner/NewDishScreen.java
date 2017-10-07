@@ -27,6 +27,7 @@ public class NewDishScreen extends AppCompatActivity {
 
         //check against all recipes
         boolean duplicate = false;
+        /*
         for (Recipe r : MainMenu.cookbook) {
             if (r.getName().equals(recipeStr)) {
                 duplicate = true;
@@ -49,5 +50,6 @@ public class NewDishScreen extends AppCompatActivity {
             Spinner spin9 = (Spinner) findViewById(R.id.ingred9);
             Spinner spin10 = (Spinner) findViewById(R.id.ingred10);
         }
+        */
     }
 }

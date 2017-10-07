@@ -10,15 +10,10 @@ import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity {
 
-    static ArrayList<Recipe> cookbook;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        if (cookbook.size() <= 0) {
-            cookbook = new ArrayList<Recipe> ();
-        }
     }
 
     public void toNewDish(View view) {
