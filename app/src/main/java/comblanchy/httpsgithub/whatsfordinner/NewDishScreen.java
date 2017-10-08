@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class NewDishScreen extends AppCompatActivity {
     Spinner spin8;
     Spinner spin9;
     Spinner spin10;
+    EditText recName;
     private ArrayList<Spinner> spinnerIngreds;
 
     @Override
@@ -55,6 +57,16 @@ public class NewDishScreen extends AppCompatActivity {
         spinnerIngreds.add(spin9);
         spinnerIngreds.add(spin10);
 
+        recName = (EditText) findViewById(R.id.directions);
+        recName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    //TODO: check against recipes name
+                }
+            }
+        });
+
         /*if coming from recipes screen, set text/drawables for all elements*/
 
         ArrayList<String> sample = new ArrayList<String>();
@@ -67,34 +79,52 @@ public class NewDishScreen extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sample);
         for (Spinner s : spinnerIngreds) {
             s.setAdapter(arrayAdapter);
+            s.setSelection(0);
         }
 
         Intent intent = getIntent();
     }
 
     public void addRecipe(View view) {
-        EditText et = (EditText) findViewById(R.id.recipename);
-        String recipeStr = et.getText().toString();
+        String recipeStr = recName.getText().toString();
 
         //TODO: check against all recipes
-        boolean duplicate = false;
-        /*
-        for (Recipe r : MainMenu.cookbook) {
-            if (r.getName().equals(recipeStr)) {
-                duplicate = true;
-            }
-        }*/
-        if (!duplicate) {
+
+        if (!isDuplicate(recipeStr)) {
             //add recipe
-            et = (EditText) findViewById(R.id.directions);
+            EditText et = (EditText) findViewById(R.id.directions);
             String directions = et.getText().toString();
             ImageView iv = (ImageView) findViewById(R.id.recipeimg);
             Drawable img = iv.getDrawable(); // ????
+            ArrayList<String> ingredientsfinal = new ArrayList<String>();
+
             //TODO: get spinner content
             for (Spinner s : spinnerIngreds) {
-
+                ingredientsfinal.add(s.getSelectedItem().toString());
+                success(view);
             }
         }
+        else {
+            Toast deny = Toast.makeText(this, "Recipe name already exists.", Toast.LENGTH_LONG);
+            deny.show();
+        }
 
+    }
+
+    /**
+     *
+     * @return if name already exists
+     */
+    public boolean isDuplicate(String name) {
+        //TODO
+        return false;
+    }
+
+    public void success(View view) {
+        Toast confirm = Toast.makeText(this, "Recipe saved!", Toast.LENGTH_LONG);
+        confirm.show();
+        Intent intent = new Intent(this, MainMenu.class);
+        //TODO: add recipe to storage
+        startActivity(intent);
     }
 }

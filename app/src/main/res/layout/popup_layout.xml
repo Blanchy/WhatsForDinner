@@ -2,15 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#898989">
+    android:background="#d7e0ef">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:layout_weight="1"
-        android:text="Blanchy Polangcos \nSoftware Version 0.0\nImage Credits:"
-        android:textAlignment="center" />
+        android:text="Blanchy Polangcos \nSoftware Version 0.0\nicons from thenounproject.com:\n“food plate” by b farias\n“book recipes” by Thomas Helbig\n“cutlery” by icon 54\n“food” by Baboon designs\nlicensed under Creative Commons \nCC BY 3.0 US"
+        android:textAlignment="textStart"
+        android:textSize="20sp" />
 
 </RelativeLayout>

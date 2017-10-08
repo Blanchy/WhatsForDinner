@@ -1,9 +1,20 @@
+/**
+ * references:
+ *
+ *     https://stackoverflow.com/questions/38987442/how-to-make-a-simple-android-popup-window
+ */
+
 package comblanchy.httpsgithub.whatsfordinner;
 
 import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.PopupWindow;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -42,8 +53,27 @@ public class MainMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /* https://stackoverflow.com/questions/38987442/how-to-make-a-simple-android-popup-window */
+    /** Reference:
+     * https://stackoverflow.com/questions/38987442/how-to-make-a-simple-android-popup-window
+     */
     public void showCredits(View view) {
         // pop up screen for title
+        ConstraintLayout cl = (ConstraintLayout) findViewById(R.id.mainmenu);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.popup_layout, null);
+
+        final PopupWindow popup = new PopupWindow
+                (popupView, ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT, true);
+
+        popup.showAtLocation(cl, Gravity.CENTER, 0, 0);
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popup.dismiss();
+                return true;
+            }
+        });
     }
 }
