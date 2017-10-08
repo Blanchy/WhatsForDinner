@@ -1,11 +1,19 @@
+/**
+ * Used code from:
+ * https://stackoverflow.com/a/17047638
+ * for the purpose of reading/writing to internal storage.
+ */
+
 package comblanchy.httpsgithub.whatsfordinner;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -13,6 +21,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class NewDishScreen extends AppCompatActivity {
@@ -29,11 +43,14 @@ public class NewDishScreen extends AppCompatActivity {
     Spinner spin10;
     EditText recName;
     private ArrayList<Spinner> spinnerIngreds;
+    private ArrayList<Recipe> cookbook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_dish_screen);
+
+        Intent intent = getIntent();
 
         Spinner spin1 = (Spinner) findViewById(R.id.ingred1);
         Spinner spin2 = (Spinner) findViewById(R.id.ingred2);
@@ -57,17 +74,25 @@ public class NewDishScreen extends AppCompatActivity {
         spinnerIngreds.add(spin9);
         spinnerIngreds.add(spin10);
 
+        cookbook = readArrayRecipe();
+
         recName = (EditText) findViewById(R.id.directions);
         recName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    //TODO: check against recipes name
+                    if (isDuplicate((String) recName.getText().toString())) {
+                        deny();
+                    }
                 }
             }
         });
 
         /*if coming from recipes screen, set text/drawables for all elements*/
+        if (intent.hasExtra("edit")) {
+            //get recipe name to read file and populate areas
+        }
+
 
         ArrayList<String> sample = new ArrayList<String>();
         sample.add("nothing");
@@ -82,13 +107,11 @@ public class NewDishScreen extends AppCompatActivity {
             s.setSelection(0);
         }
 
-        Intent intent = getIntent();
+
     }
 
     public void addRecipe(View view) {
         String recipeStr = recName.getText().toString();
-
-        //TODO: check against all recipes
 
         if (!isDuplicate(recipeStr)) {
             //add recipe
@@ -101,14 +124,19 @@ public class NewDishScreen extends AppCompatActivity {
             //TODO: get spinner content
             for (Spinner s : spinnerIngreds) {
                 ingredientsfinal.add(s.getSelectedItem().toString());
-                success(view);
+
             }
+            success(new Recipe(recipeStr, ingredientsfinal, directions, img));
         }
         else {
-            Toast deny = Toast.makeText(this, "Recipe name already exists.", Toast.LENGTH_LONG);
-            deny.show();
+            deny();
         }
 
+    }
+
+    public void deny() {
+        Toast deny = Toast.makeText(this, "Recipe name already exists.", Toast.LENGTH_LONG);
+        deny.show();
     }
 
     /**
@@ -116,15 +144,116 @@ public class NewDishScreen extends AppCompatActivity {
      * @return if name already exists
      */
     public boolean isDuplicate(String name) {
-        //TODO
-        return false;
+        boolean b = false;
+        for (Recipe r : cookbook) {
+            if (r.getName().equals(name)) {
+                b = true;
+            }
+        }
+        return b;
     }
 
-    public void success(View view) {
+    /**
+     * Add new recipe
+     * @param r Recipe to add
+     */
+    public void success(Recipe r) {
         Toast confirm = Toast.makeText(this, "Recipe saved!", Toast.LENGTH_LONG);
         confirm.show();
         Intent intent = new Intent(this, MainMenu.class);
-        //TODO: add recipe to storage
+        deleteFile("cookbook");
+        cookbook.add(r);
+        //store(cookbook);
+        store(r);
         startActivity(intent);
+    }
+
+    /**
+     * Used code from:
+     * https://stackoverflow.com/a/17047638
+     */
+    private void store(Recipe r) {
+        String filname = (String) recName.getText().toString();
+        try {
+            FileOutputStream fos = openFileOutput(filname, Context.MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(r);
+            oos.flush();
+            oos.close();
+            fos.close();
+        }
+        catch (Exception e) {
+            Log.e("InternalStorage", e.getMessage());
+        }
+        Toast verify = Toast.makeText(this, "file saved", Toast.LENGTH_LONG);
+        verify.show();
+    }
+
+    /**
+     * Used code from:
+     * https://stackoverflow.com/a/17047638
+     */
+    private void store(ArrayList<Recipe> ar) {
+        try {
+            FileOutputStream fos = openFileOutput("cookbook", Context.MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(ar);
+            oos.flush();
+            oos.close();
+            fos.close();
+        }
+        catch (Exception e) {
+            Log.e("InternalStorage", e.getMessage());
+        }
+        Toast verify = Toast.makeText(this, "array saved", Toast.LENGTH_LONG);
+        verify.show();
+    }
+
+    /**
+     * Used code from:
+     * https://stackoverflow.com/a/17047638
+     */
+    private Recipe readRecipe(String fn) {
+        Recipe r = null;
+        FileInputStream fis;
+        try {
+            fis = openFileInput(fn);
+            ObjectInputStream oi = new ObjectInputStream(fis);
+            r = (Recipe) oi.readObject();
+            oi.close();
+        } catch (FileNotFoundException e) {
+            Log.e("InternalStorage", e.getMessage());
+        } catch (IOException e) {
+            Log.e("InternalStorage", e.getMessage());
+        } catch (ClassNotFoundException e) {
+            Log.e("InternalStorage", e.getMessage());
+        }
+
+        return r;
+    }
+
+    /**
+     * Used code from:
+     * https://stackoverflow.com/a/17047638
+     */
+    private ArrayList<Recipe> readArrayRecipe() {
+        ArrayList<Recipe> ar = null;
+
+        FileInputStream fis;
+        try {
+            fis = openFileInput("cookbook");
+            ObjectInputStream oi = new ObjectInputStream(fis);
+            ar = (ArrayList<Recipe>) oi.readObject();
+            oi.close();
+        } catch (FileNotFoundException e) {
+            store(new ArrayList<Recipe>());
+            //Log.e("InternalStorage", e.getMessage());
+        } catch (IOException e) {
+            Log.e("InternalStorage", e.getMessage());
+        } catch (ClassNotFoundException e) {
+            Log.e("InternalStorage", e.getMessage());
+        }
+
+        return ar;
     }
 }

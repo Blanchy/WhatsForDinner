@@ -22,8 +22,9 @@ import java.util.ArrayList;
 public class MainMenu extends AppCompatActivity {
 
     // recipes and ingredients
-    private ArrayList<Recipe> cookbook;
+    static final ArrayList<Recipe> cookbook = new ArrayList<Recipe>();
     private ArrayList<String> fridge;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
