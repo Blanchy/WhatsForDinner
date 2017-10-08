@@ -1,3 +1,9 @@
+/**
+ * Used references:
+ * "Dynamic Layouts using the Fragment Manager" Andrew T. Campbell
+ * http://www.cs.dartmouth.edu/~campbell/cs65/lecture09/lecture09.html
+ */
+
 package comblanchy.httpsgithub.whatsfordinner;
 
 import android.app.FragmentManager;
@@ -54,16 +60,16 @@ public class RecipeScreen extends AppCompatActivity {
         //if (rl == null || rl.getIndex() != index) {
             //int x = 0;
             //details =
-            RecipeLandscape newrl = RecipeLandscape.newInstance(index);
-            Bundle b = new Bundle();
-            b.putInt("index", index);
-            newrl.setArguments(b);
+            rl = RecipeLandscape.newInstance(index);
+            //Bundle b = new Bundle();
+            //b.putInt("index", index);
+            //rl.setArguments(b);
 
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction =
                     fragmentManager.beginTransaction();
 
-            fragmentTransaction.replace(android.R.id.content, newrl);
+            fragmentTransaction.replace(android.R.id.content, rl);
             fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             fragmentTransaction.commit();
 

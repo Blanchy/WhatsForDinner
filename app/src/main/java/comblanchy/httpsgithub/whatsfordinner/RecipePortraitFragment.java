@@ -1,6 +1,7 @@
 package comblanchy.httpsgithub.whatsfordinner;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -65,6 +67,17 @@ public class RecipePortraitFragment extends Fragment {
                                       }
                                   }
         );
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                           int pos, long id) {
+                //TODO: send intents to recipe screen. send string of recipe and remove from arraylist
+
+                Intent intent = new Intent(getActivity(), NewDishScreen.class);
+                startActivity(intent);
+                return true;
+            }
+        });
 
         lv.setAdapter(a);
         // Inflate the layout for this fragment
