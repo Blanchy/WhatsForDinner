@@ -11,6 +11,8 @@ public class RecipeScreen extends AppCompatActivity {
 
     //orientation 1 = vertical, orientation 0 = horizontal
     private int orient;
+    private RecipeLandscape rl;
+    private RecipePortraitFragment rpf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +32,42 @@ public class RecipeScreen extends AppCompatActivity {
         if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             //display both fragment
             orient = 1;
-            RecipeLandscape rl = new RecipeLandscape();
+            rl = new RecipeLandscape();
+
             fragmentTransaction.replace(android.R.id.content, rl);
         }
         else {
             orient = 0;
             // display one fragment
-            RecipePortraitFragment rpf = new RecipePortraitFragment();
+            rpf = new RecipePortraitFragment();
             fragmentTransaction.replace(android.R.id.content, rpf);
         }
 
         fragmentTransaction.commit();
     }
 
+    public void showRecipe(int index) {
+        //RecipeLandscape details = (RecipeLandscape) getFragmentManager()
+        //        .findFragmentById(R.id.recipedetailholder);
 
+
+        //if (rl == null || rl.getIndex() != index) {
+            //int x = 0;
+            //details =
+            RecipeLandscape newrl = RecipeLandscape.newInstance(index);
+            Bundle b = new Bundle();
+            b.putInt("index", index);
+            newrl.setArguments(b);
+
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction =
+                    fragmentManager.beginTransaction();
+
+            fragmentTransaction.replace(android.R.id.content, newrl);
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            fragmentTransaction.commit();
+
+        //}
+
+    }
 }

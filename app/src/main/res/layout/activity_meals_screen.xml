@@ -7,18 +7,19 @@
     tools:context="comblanchy.httpsgithub.whatsfordinner.MealsScreen">
 
     <TextView
-        android:id="@+id/grocerytitle"
+        android:id="@+id/mealtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_weight="0.05"
-        android:text="Groceries"
-        android:textSize="30sp"
+        android:fontFamily="cursive"
+        android:text="Meals"
+        android:textSize="36sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1"
-        tools:text="Groceries" />
+        tools:text="Meals" />
 
     <ScrollView
         android:id="@+id/scrolldays"
@@ -66,7 +67,7 @@
                     android:weightSum="1">
 
                     <TextView
-                        android:id="@+id/morning"
+                        android:id="@+id/morning1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.21"
@@ -75,7 +76,7 @@
                         tools:text="Morning" />
 
                     <TextView
-                        android:id="@+id/noon"
+                        android:id="@+id/noon1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.41"
@@ -84,7 +85,7 @@
                         tools:text="Noon" />
 
                     <TextView
-                        android:id="@+id/evening"
+                        android:id="@+id/evening1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.41"
@@ -123,12 +124,142 @@
                 android:text="Monday"
                 android:textSize="24sp" />
 
+            <LinearLayout
+                android:id="@+id/daycontent2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.05"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/theday2"
+                    android:layout_width="159dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/morning2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.21"
+                        android:text="Morning"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+
+                    <TextView
+                        android:id="@+id/noon2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Noon"
+                        android:textSize="18sp"
+                        tools:text="Noon" />
+
+                    <TextView
+                        android:id="@+id/evening2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Evening"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/daymeals2"
+                    android:layout_width="179dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/mbreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/mlunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/mdinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/Tuesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tuesday"
                 android:textSize="24sp" />
+
+            <LinearLayout
+                android:id="@+id/daycontent3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.05"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/theday3"
+                    android:layout_width="159dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/morning3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.21"
+                        android:text="Morning"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+
+                    <TextView
+                        android:id="@+id/noon3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Noon"
+                        android:textSize="18sp"
+                        tools:text="Noon" />
+
+                    <TextView
+                        android:id="@+id/evening3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Evening"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/daymeals3"
+                    android:layout_width="179dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/tbreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/tlunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/tdinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/Wednesday"
@@ -137,12 +268,142 @@
                 android:text="Wednesday"
                 android:textSize="24sp" />
 
+            <LinearLayout
+                android:id="@+id/daycontent4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.05"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/theday4"
+                    android:layout_width="159dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/morning4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.21"
+                        android:text="Morning"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+
+                    <TextView
+                        android:id="@+id/noon4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Noon"
+                        android:textSize="18sp"
+                        tools:text="Noon" />
+
+                    <TextView
+                        android:id="@+id/evening4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Evening"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/daymeals4"
+                    android:layout_width="179dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/wbreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/wlunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/wdinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/Thursday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Thursday"
                 android:textSize="24sp" />
+
+            <LinearLayout
+                android:id="@+id/daycontent5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.05"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/theday5"
+                    android:layout_width="159dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/morning5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.21"
+                        android:text="Morning"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+
+                    <TextView
+                        android:id="@+id/noon5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Noon"
+                        android:textSize="18sp"
+                        tools:text="Noon" />
+
+                    <TextView
+                        android:id="@+id/evening5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Evening"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/daymeals5"
+                    android:layout_width="179dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/thbreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/thlunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/thdinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/Friday"
@@ -151,12 +412,142 @@
                 android:text="Friday"
                 android:textSize="24sp" />
 
+            <LinearLayout
+                android:id="@+id/daycontent6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.05"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/theday6"
+                    android:layout_width="159dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/morning6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.21"
+                        android:text="Morning"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+
+                    <TextView
+                        android:id="@+id/noon6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Noon"
+                        android:textSize="18sp"
+                        tools:text="Noon" />
+
+                    <TextView
+                        android:id="@+id/evening6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Evening"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/daymeals6"
+                    android:layout_width="179dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/fbreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/flunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/fdinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/Saturday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Saturday"
                 android:textSize="24sp" />
+
+            <LinearLayout
+                android:id="@+id/daycontent7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.05"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/theday7"
+                    android:layout_width="159dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/morning7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.21"
+                        android:text="Morning"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+
+                    <TextView
+                        android:id="@+id/noon7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Noon"
+                        android:textSize="18sp"
+                        tools:text="Noon" />
+
+                    <TextView
+                        android:id="@+id/evening7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.41"
+                        android:text="Evening"
+                        android:textSize="18sp"
+                        tools:text="Morning" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/daymeals7"
+                    android:layout_width="179dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/sabreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/salunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/sadinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
