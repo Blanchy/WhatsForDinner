@@ -61,7 +61,7 @@ public class RecipeLandscape extends Fragment {
         sample.add("xyzzy");
         sample.add("stuff");
         //TODO: change to recipe indices
-
+        //detailname.setText(sample.get(getIndex()));
         return v;
     }
 

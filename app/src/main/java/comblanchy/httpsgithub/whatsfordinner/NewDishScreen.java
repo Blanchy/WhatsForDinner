@@ -91,7 +91,9 @@ public class NewDishScreen extends AppCompatActivity {
             ImageView iv = (ImageView) findViewById(R.id.recipeimg);
             Drawable img = iv.getDrawable(); // ????
             //TODO: get spinner content
+            for (Spinner s : spinnerIngreds) {
 
+            }
         }
 
     }

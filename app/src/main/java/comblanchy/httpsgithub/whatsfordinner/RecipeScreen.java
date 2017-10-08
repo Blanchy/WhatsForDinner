@@ -69,7 +69,7 @@ public class RecipeScreen extends AppCompatActivity {
             FragmentTransaction fragmentTransaction =
                     fragmentManager.beginTransaction();
 
-            fragmentTransaction.replace(android.R.id.content, rl);
+            fragmentTransaction.replace(R.id.bigparent, rl);
             fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             fragmentTransaction.commit();
 

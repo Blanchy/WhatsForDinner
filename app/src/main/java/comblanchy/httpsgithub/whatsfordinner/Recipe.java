@@ -5,6 +5,7 @@ import android.media.Image;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * Emulates a recipe with a name, picture, and ingredients.
  */
 
-public class Recipe implements Parcelable {
+public class Recipe implements Serializable {
 
     private String name;
     private ArrayList<String> ingredients;
@@ -25,18 +26,6 @@ public class Recipe implements Parcelable {
         this.img = img;
         this.directions = directions;
     }
-
-    public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
-        @Override
-        public Recipe createFromParcel(Parcel in) {
-            return new Recipe(in);
-        }
-
-        @Override
-        public Recipe[] newArray(int size) {
-            return new Recipe[size];
-        }
-    };
 
     public String getName() {
         return name;
@@ -73,23 +62,5 @@ public class Recipe implements Parcelable {
         return getName();
     }
 
-    public Recipe (Parcel in) {
-        String[] data = new String[4];
-        in.readStringArray(data);
-
-
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeStringArray(new String[] {this.name,
-                String.valueOf(this.ingredients),
-                this.directions});
-    }
 
 }

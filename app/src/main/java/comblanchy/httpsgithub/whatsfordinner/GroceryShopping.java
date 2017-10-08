@@ -36,11 +36,15 @@ public class GroceryShopping extends AppCompatActivity {
     }
 
     public void updateList(View view) {
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, sample);
+        lv.setAdapter(arrayAdapter);
+    }
+
+    public void addNew(View view) {
         EditText et = (EditText) findViewById(R.id.addIngred);
         String ingr = et.getText().toString();
         sample.add(ingr);
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, sample);
-        lv.setAdapter(arrayAdapter);
+        updateList(view);
     }
 
     //add swipe detector for left/right
