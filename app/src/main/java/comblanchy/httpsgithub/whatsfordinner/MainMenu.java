@@ -1,7 +1,8 @@
 /**
+ * @author blanchypolangcos
  * references:
  *
- *     https://stackoverflow.com/questions/38987442/how-to-make-a-simple-android-popup-window
+ *     https://stackoverflow.com/a/45077688
  */
 
 package comblanchy.httpsgithub.whatsfordinner;
@@ -55,7 +56,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     /** Reference:
-     * https://stackoverflow.com/questions/38987442/how-to-make-a-simple-android-popup-window
+     * https://stackoverflow.com/a/45077688
      */
     public void showCredits(View view) {
         // pop up screen for title

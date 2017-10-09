@@ -72,7 +72,6 @@ public class MealsScreen extends AppCompatActivity {
 
         for (Spinner s : mealpickers) {
             s.setAdapter(arrayAdapter);
-            s.setSelection(0);
         }
     }
 

@@ -1,3 +1,6 @@
+/**
+ * @author blanchypolangcos
+ */
 package comblanchy.httpsgithub.whatsfordinner;
 
 import android.content.Context;
@@ -6,6 +9,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +56,8 @@ public class RecipePortraitFragment extends Fragment {
                                       @Override
                                       public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                           String item = (String) adapterView.getItemAtPosition(i);
+                                          Log.d("Testing", "dfgg " + item.getClass());
+                                          RecipeHolder.getInstance().addMeals(item);
                                           index = i;
 
                                           if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

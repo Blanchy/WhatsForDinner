@@ -1,4 +1,10 @@
+/**
+ * @author blanchypolangcos
+ */
+
 package comblanchy.httpsgithub.whatsfordinner;
+
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -13,10 +19,12 @@ class RecipeHolder {
     private ArrayList<Recipe> meals = new ArrayList<Recipe>();
 
     static RecipeHolder getInstance() {
+        Log.d("Test", "instance of recipe holder");
         return ourInstance;
     }
 
     private RecipeHolder() {
+        ingredients.add("nothing");
         ingredients.add("example");
         ingredients.add("sample");
         ingredients.add("ample");
@@ -37,13 +45,28 @@ class RecipeHolder {
     public void addMeals(String s) {
         boolean found = false;
         int i = 0;
-        while (!found && i <= cookbook.size()) {
-            if (cookbook.get(i).equals(s)) {
+        while (!found && i <= cookbook.size() - 1) {
+
+            if (cookbook.get(i).getName().equals(s)) {
                 meals.add(cookbook.get(i));
                 ingredients.addAll(cookbook.get(i).getIngred());
             }
             i++;
         }
+        Log.d("Test", "meal method accessed");
+    }
+
+    public Recipe getRecipe(String name) {
+        Recipe r = null;
+        boolean found = false;
+        int i = 0;
+        while (!found && i <= cookbook.size() - 1) {
+            if (cookbook.get(i).getName().equals(name)) {
+                r = cookbook.get(i);
+            }
+            i++;
+        }
+        return r;
     }
 
     public ArrayList<Recipe> getRecipeList() {
@@ -64,6 +87,7 @@ class RecipeHolder {
 
     public ArrayList<String> getMeals() {
         ArrayList<String> al = new ArrayList<String>();
+        al.add("Eating Outside");
         for (Recipe r : meals) {
             al.add(r.getName());
         }

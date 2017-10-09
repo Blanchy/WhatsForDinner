@@ -55,14 +55,14 @@ public class RecipeLandscape extends Fragment {
         detailingredients = (TextView) v.findViewById(R.id.addIngred);
         detailname = (TextView) v.findViewById(R.id.detailname);
 
-        ArrayList<String> sample = new ArrayList<String>();
-        sample.add("nothing");
-        sample.add("tums");
-        sample.add("xyzzy");
-        sample.add("stuff");
-        //TODO: change to recipe indices
-        //detailname.setText(sample.get(getIndex()));
+        /**
+        //change to recipe indices
+        Recipe curRec = (RecipeHolder.getInstance().getRecipeList()).get(getIndex());
+        detailname.setText(curRec.getName());
+        detaildirections.setText(curRec.getDirections());
+        detailimg.setImageDrawable(curRec.getImage());*/
         return v;
+
     }
 
 }

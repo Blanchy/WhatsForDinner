@@ -1,4 +1,5 @@
 /**
+ * @author blanchypolangcos
  * Used code from:
  * https://stackoverflow.com/a/17047638
  * for the purpose of reading/writing to internal storage.
@@ -99,6 +100,7 @@ public class NewDishScreen extends AppCompatActivity {
     }
 
     public void addRecipe(View view) {
+        Log.d("nd", "addRecipe");
         String recipeStr = recName.getText().toString();
 
         if (!isDuplicate(recipeStr)) {
@@ -132,6 +134,7 @@ public class NewDishScreen extends AppCompatActivity {
      * @return if name already exists
      */
     public boolean isDuplicate(String name) {
+        Log.d("nd", "isDuplicate");
         boolean b = false;
         for (Recipe r : RecipeHolder.getInstance().getRecipeList()) {
             if (r.getName().equals(name)) {
@@ -146,6 +149,7 @@ public class NewDishScreen extends AppCompatActivity {
      * @param r Recipe to add
      */
     public void success(Recipe r) {
+        Log.d("nd", "success");
         Toast confirm = Toast.makeText(this, "Recipe saved!", Toast.LENGTH_LONG);
         confirm.show();
         Intent intent = new Intent(this, MainMenu.class);
