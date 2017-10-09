@@ -85,6 +85,20 @@ class RecipeHolder {
         return ingredients;
     }
 
+    public int getIngIndex(String s) {
+        int i = -1;
+        boolean b = false;
+        int x = 0; //iterator
+        while (!b && x <= ingredients.size()-1) {
+            if (ingredients.get(x).equalsIgnoreCase(s)) {
+                i = x;
+                b = true;
+                x++;
+            }
+        }
+        return i;
+    }
+
     public ArrayList<String> getMeals() {
         ArrayList<String> al = new ArrayList<String>();
         al.add("Eating Outside");

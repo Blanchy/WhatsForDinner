@@ -28,6 +28,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class NewDishScreen extends AppCompatActivity {
@@ -86,24 +87,43 @@ public class NewDishScreen extends AppCompatActivity {
             }
         });
 
-        /*if coming from recipes screen, set text/drawables for all elements*/
-        if (intent.hasExtra("edit")) {
-            //get recipe name to read file and populate areas
-        }
-
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, RecipeHolder.getInstance().getIngredients());
         for (Spinner s : spinnerIngreds) {
             s.setAdapter(arrayAdapter);
         }
 
+             /*if coming from recipes screen, set text/drawables for all elements*/
+        if (intent.hasExtra("edit")) {
+            String recipeNameString = intent.getStringExtra("edit");
+            Recipe r = RecipeHolder.getInstance().getRecipe(recipeNameString);
+            if (r != null) { //get recipe name to read file and populate areas
+                recName.setText(r.getName());
+                EditText recDirect = (EditText) findViewById(R.id.directions);
+                recDirect.setText(r.getDirections());
+                ImageView iv = (ImageView) findViewById(R.id.recipeimg);
+                iv.setImageDrawable(r.getImage());
+                //setSpinners(r.getIngred());
+            }
 
+        }
+
+
+    }
+
+    private void setSpinners(ArrayList<String> ingreds) {
+
+        int i = 0; //ingredient of ingred
+        for (Spinner s : spinnerIngreds) {
+            Log.d("NDS", "finding " + ingreds.get(i));
+            s.setSelection(RecipeHolder.getInstance().getIngIndex(ingreds.get(i)));
+        }
     }
 
     public void addRecipe(View view) {
         Log.d("nd", "addRecipe");
         String recipeStr = recName.getText().toString();
 
-        if (!isDuplicate(recipeStr)) {
+        if (!isDuplicate(recipeStr)||getIntent().hasExtra("edit")) {
             //add recipe
             EditText et = (EditText) findViewById(R.id.directions);
             String directions = et.getText().toString();

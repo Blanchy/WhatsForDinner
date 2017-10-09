@@ -73,9 +73,10 @@ public class RecipePortraitFragment extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
                                            int pos, long id) {
-                //TODO: send intents to recipe screen. send string of recipe and remove from arraylist
-
+                //send intents to recipe screen. send string of recipe and remove from arraylist
+                String item = (String) arg0.getItemAtPosition(pos);
                 Intent intent = new Intent(getActivity(), NewDishScreen.class);
+                intent.putExtra("edit", item);
                 startActivity(intent);
                 return true;
             }
