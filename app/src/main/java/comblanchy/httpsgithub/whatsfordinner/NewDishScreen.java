@@ -90,18 +90,9 @@ public class NewDishScreen extends AppCompatActivity {
             //get recipe name to read file and populate areas
         }
 
-
-        ArrayList<String> sample = new ArrayList<String>();
-        sample.add("nothing");
-        sample.add("tums");
-        sample.add("xyzzy");
-        sample.add("stuff");
-
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sample);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, RecipeHolder.getInstance().getIngredients());
         for (Spinner s : spinnerIngreds) {
             s.setAdapter(arrayAdapter);
-            s.setSelection(0);
         }
 
 

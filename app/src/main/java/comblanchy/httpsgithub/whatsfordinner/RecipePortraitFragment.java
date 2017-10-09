@@ -46,18 +46,14 @@ public class RecipePortraitFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_recipe_portrait, container, false);
         lv = (ListView) v.findViewById(R.id.recipelist);
 
-        ArrayList<String> sample = new ArrayList<String>();
-        sample.add("foo");
-        sample.add("bar");
-
-        ArrayAdapter a = new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_list_item_activated_1, sample);
+        ArrayAdapter a = new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_list_item_activated_1, RecipeHolder.getInstance().getRecipeString());
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                       @Override
                                       public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                          //TODO: replace with recipe type
                                           String item = (String) adapterView.getItemAtPosition(i);
                                           index = i;
+
                                           if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
                                               if (getActivity() instanceof RecipeScreen) {

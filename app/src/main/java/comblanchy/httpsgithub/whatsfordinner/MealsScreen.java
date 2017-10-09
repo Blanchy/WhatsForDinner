@@ -2,6 +2,7 @@ package comblanchy.httpsgithub.whatsfordinner;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -67,8 +68,10 @@ public class MealsScreen extends AppCompatActivity {
             // restore spinner values
         }
 
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, RecipeHolder.getInstance().getMeals());
+
         for (Spinner s : mealpickers) {
-            //TODO: set adapter
+            s.setAdapter(arrayAdapter);
             s.setSelection(0);
         }
     }

@@ -17,7 +17,9 @@ class RecipeHolder {
     }
 
     private RecipeHolder() {
-
+        ingredients.add("example");
+        ingredients.add("sample");
+        ingredients.add("ample");
     }
 
     public void addRecipe(Recipe r) {
@@ -32,16 +34,40 @@ class RecipeHolder {
         ingredients.addAll(ss);
     }
 
+    public void addMeals(String s) {
+        boolean found = false;
+        int i = 0;
+        while (!found && i <= cookbook.size()) {
+            if (cookbook.get(i).equals(s)) {
+                meals.add(cookbook.get(i));
+                ingredients.addAll(cookbook.get(i).getIngred());
+            }
+            i++;
+        }
+    }
+
     public ArrayList<Recipe> getRecipeList() {
         return cookbook;
+    }
+
+    public ArrayList<String> getRecipeString() {
+        ArrayList<String> al = new ArrayList<String>();
+        for (Recipe r : cookbook) {
+            al.add(r.getName());
+        }
+        return al;
     }
 
     public ArrayList<String> getIngredients() {
         return ingredients;
     }
 
-    public ArrayList<Recipe> getMeals() {
-        return meals;
+    public ArrayList<String> getMeals() {
+        ArrayList<String> al = new ArrayList<String>();
+        for (Recipe r : meals) {
+            al.add(r.getName());
+        }
+        return al;
     }
 
     public void setMeals(ArrayList<Recipe> meals) {
