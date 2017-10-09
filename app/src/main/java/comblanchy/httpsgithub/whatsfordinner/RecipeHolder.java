@@ -19,7 +19,7 @@ class RecipeHolder {
     private ArrayList<Recipe> meals = new ArrayList<Recipe>();
 
     static RecipeHolder getInstance() {
-        Log.d("Test", "instance of recipe holder");
+        //Log.d("Test", "instance of recipe holder");
         return ourInstance;
     }
 
