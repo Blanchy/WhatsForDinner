@@ -2,6 +2,8 @@ package comblanchy.httpsgithub.whatsfordinner;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 public class MealsScreen extends AppCompatActivity {
 
     ArrayList<Spinner> mealpickers;
+    ArrayList<String>  meals = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +67,33 @@ public class MealsScreen extends AppCompatActivity {
         mealpickers.add(s20);
         mealpickers.add(s21);
 
+        meals.addAll(RecipeHolder.getInstance().getMeals());
+
+
         if (savedInstanceState!= null){
             // restore spinner values
         }
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, RecipeHolder.getInstance().getMeals());
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, meals);
 
-        for (Spinner s : mealpickers) {
+        for (final Spinner s : mealpickers) {
+            s.setSelection(0);
             s.setAdapter(arrayAdapter);
+            s.setFocusable(true);
+            s.setFocusableInTouchMode(true);
+            s.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean b) {
+                    if (!b) {
+
+                        String meal = (String) s.getSelectedItem();
+                        if (!meal.equalsIgnoreCase("Eating outside")) {
+                            meals.remove(meal);
+                        }
+                    }
+
+                }
+            });
         }
     }
 
