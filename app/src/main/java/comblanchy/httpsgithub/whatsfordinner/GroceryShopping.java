@@ -2,10 +2,17 @@
  * @author blanchypolangcos
  * References used:
  *  https://stackoverflow.com/questions/13281197/android-how-to-create-clickable-listview/
+ *
+ *  jonndavis1993 Android-Tutorials source code
+ *  for the purpose of creating listview items with buttons
+ *  https://github.com/jonndavis1993/Android-Tutorials/tree/master/app
  */
 
 package comblanchy.httpsgithub.whatsfordinner;
 
+import android.content.Context;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -90,5 +97,23 @@ public class GroceryShopping extends AppCompatActivity {
             list.add(s + " - " + hm.get(s));
         }
         return list;
+    }
+
+    /*
+    jonndavis1993 Android-Tutorials source code
+ *  for the purpose of creating listview items with buttons
+ *  https://github.com/jonndavis1993/Android-Tutorials/tree/master/app
+     */
+    private class GroceryAdapter extends ArrayAdapter<String> {
+        private int layout;
+        private List<String> objects;
+
+        public GroceryAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<String> objects) {
+            super(context, resource, objects);
+            this.objects = objects;
+            layout = resource;
+        }
+
+
     }
 }

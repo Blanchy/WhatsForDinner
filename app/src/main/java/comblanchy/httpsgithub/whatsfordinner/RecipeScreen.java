@@ -16,11 +16,6 @@ import android.os.Bundle;
 
 public class RecipeScreen extends AppCompatActivity implements RecipePortraitFragment.OnItemSelectedListener {
 
-    //orientation 1 = vertical, orientation 0 = horizontal
-    private int orient;
-    private RecipeLandscape rl;
-    private RecipePortraitFragment rpf;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

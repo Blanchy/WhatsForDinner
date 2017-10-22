@@ -29,10 +29,6 @@ import java.util.ArrayList;
 public class RecipePortraitFragment extends Fragment {
 
     private ListView lv;
-    private TextView detIng;
-    private TextView detNam;
-    private TextView detDir;
-    private ImageView iv;
     private int index;
     private OnItemSelectedListener oisl;
 

@@ -33,16 +33,6 @@ import java.util.ArrayList;
 
 public class NewDishScreen extends AppCompatActivity {
 
-    Spinner spin1;
-    Spinner spin2;
-    Spinner spin3;
-    Spinner spin4;
-    Spinner spin5;
-    Spinner spin6;
-    Spinner spin7;
-    Spinner spin8;
-    Spinner spin9;
-    Spinner spin10;
     EditText recName;
     private ArrayList<Spinner> spinnerIngreds;
 
