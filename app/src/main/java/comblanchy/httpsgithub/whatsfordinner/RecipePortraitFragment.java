@@ -3,10 +3,12 @@
  */
 package comblanchy.httpsgithub.whatsfordinner;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -32,9 +34,53 @@ public class RecipePortraitFragment extends Fragment {
     private TextView detDir;
     private ImageView iv;
     private int index;
+    private OnItemSelectedListener oisl;
+
 
     public RecipePortraitFragment() {
         // Required empty public constructor
+    }
+
+    public interface OnItemSelectedListener {
+        void onRecipeSelected(String recipe);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        Activity a = null;
+        if (context instanceof Activity) { a = (Activity) context; }
+
+        if (context instanceof OnItemSelectedListener) {
+            oisl = (OnItemSelectedListener) context;
+        }
+        else {
+            throw new ClassCastException(context.toString() + " not instance of RecipePortraitFragment.OnItemSelectedListener");
+        }
+    }
+
+    /**
+     *  Referenced code from Yoann Hercouet on StackOverflow
+     *  https://stackoverflow.com/a/34747012
+     */
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            if (activity instanceof OnItemSelectedListener) {
+                oisl = (OnItemSelectedListener) activity;
+            }
+            else {
+                throw new ClassCastException(activity.toString() + " not instance of RecipePortraitFragment.OnItemSelectedListener");
+            }
+        }
+    }
+
+    public void updateView(String recipe) {
+        oisl.onRecipeSelected(recipe);
     }
 
     @Override
@@ -56,16 +102,10 @@ public class RecipePortraitFragment extends Fragment {
                                       @Override
                                       public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                           String item = (String) adapterView.getItemAtPosition(i);
-                                          Log.d("Testing", "dfgg " + item.getClass());
-                                          RecipeHolder.getInstance().addMeals(item);
+                                          Log.d("rpf", "item get " + item.getClass());
+                                          //RecipeHolder.getInstance().addMeals(item);
                                           index = i;
-
-                                          if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
-                                              if (getActivity() instanceof RecipeScreen) {
-                                                  ((RecipeScreen) getActivity()).showRecipe(index);
-                                              }
-                                          }
+                                          updateView(item);
                                       }
                                   }
         );

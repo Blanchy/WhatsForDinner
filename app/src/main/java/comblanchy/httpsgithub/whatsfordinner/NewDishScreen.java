@@ -87,13 +87,19 @@ public class NewDishScreen extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, RecipeHolder.getInstance().getIngredients());
+        // make the first item null
+        ArrayList<String> ingredientList = new ArrayList<String>();
+        ingredientList.add("");
+        ingredientList.addAll(RecipeHolder.getInstance().getIngredients());
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ingredientList);
         for (Spinner s : spinnerIngreds) {
             s.setAdapter(arrayAdapter);
         }
 
              /*if coming from recipes screen, set text/drawables for all elements*/
         if (intent.hasExtra("edit")) {
+
             String recipeNameString = intent.getStringExtra("edit");
             Recipe r = RecipeHolder.getInstance().getRecipe(recipeNameString);
             if (r != null) { //get recipe name to read file and populate areas
@@ -133,8 +139,10 @@ public class NewDishScreen extends AppCompatActivity {
 
             //get spinner content
             for (Spinner s : spinnerIngreds) {
-                ingredientsfinal.add(s.getSelectedItem().toString());
-
+                String thing = s.getSelectedItem().toString();
+                if (thing.length() > 0) {
+                    ingredientsfinal.add(thing);
+                }
             }
             success(new Recipe(recipeStr, ingredientsfinal, directions, img));
         }
@@ -157,9 +165,12 @@ public class NewDishScreen extends AppCompatActivity {
         Log.d("nd", "isDuplicate");
         boolean b = false;
         for (Recipe r : RecipeHolder.getInstance().getRecipeList()) {
-            if (r.getName().equals(name)) {
+            if (r.getName().equalsIgnoreCase(name)) {
                 b = true;
             }
+        }
+        if (getIntent().hasExtra("edit")) {
+           return false;
         }
         return b;
     }
@@ -173,6 +184,7 @@ public class NewDishScreen extends AppCompatActivity {
         Toast confirm = Toast.makeText(this, "Recipe saved!", Toast.LENGTH_LONG);
         confirm.show();
         Intent intent = new Intent(this, MainMenu.class);
+        RecipeHolder.getInstance().removeRecipe(r); //if editing a recipe, this removes the pre-existing version
         RecipeHolder.getInstance().addRecipe(r);
         startActivity(intent);
     }

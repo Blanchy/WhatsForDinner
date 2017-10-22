@@ -24,14 +24,25 @@ class RecipeHolder {
     }
 
     private RecipeHolder() {
-        ingredients.add("nothing");
-        ingredients.add("example");
-        ingredients.add("sample");
-        ingredients.add("ample");
+        ingredients.add("sugar");
+        ingredients.add("spice");
+        ingredients.add("everything nice");
     }
 
     public void addRecipe(Recipe r) {
         cookbook.add(r);
+    }
+
+    public void removeRecipe(Recipe r) {
+        if (cookbook.contains(r)) {
+            cookbook.remove(r);
+        }
+        String debug = "";
+        for (Recipe c :cookbook) {
+            debug = debug + c.getName() + "\n";
+        }
+        Log.d("recipe list update", "recipe " + r.getName() + " removed");
+        Log.d("new recipe list", debug);
     }
 
     public void addIngredients(String s) {

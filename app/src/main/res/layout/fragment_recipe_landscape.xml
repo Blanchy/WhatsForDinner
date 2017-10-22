@@ -13,14 +13,6 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <fragment
-            android:id="@+id/fragment"
-            android:name="comblanchy.httpsgithub.whatsfordinner.RecipePortraitFragment"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:layout="@layout/fragment_recipe_portrait" />
-
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -45,12 +37,11 @@
                     android:text="Recipe Name"
                     android:textSize="24sp" />
 
-                <TextView
+                <ListView
                     android:id="@+id/detailingred"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ingredients"
-                    android:textSize="24sp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="257dp"
+                    android:verticalScrollbarPosition="right" />
 
                 <TextView
                     android:id="@+id/detaildirect"

@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context="comblanchy.httpsgithub.whatsfordinner.RecipeScreen">
 
+    <LinearLayout
+        android:layout_width="576dp"
+        android:layout_height="295dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <fragment
+            android:id="@+id/fprecipes"
+            android:name="comblanchy.httpsgithub.whatsfordinner.RecipePortraitFragment"
+            android:layout_width="199dp"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_recipe_portrait" />
+
+        <fragment
+            android:id="@+id/flrecipes"
+            android:name="comblanchy.httpsgithub.whatsfordinner.RecipeLandscape"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_recipe_landscape" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

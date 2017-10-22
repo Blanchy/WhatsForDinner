@@ -62,5 +62,15 @@ public class Recipe implements Serializable {
         return getName();
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        Recipe r = (Recipe) obj;
+        if (this.name.equals(r.getName())) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }
