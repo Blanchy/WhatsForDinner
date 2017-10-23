@@ -8,7 +8,7 @@
  *  https://github.com/jonndavis1993/Android-Tutorials/tree/master/app
  *
  *  Code for strikethrough text from hovanessyan:
-https://stackoverflow.com/a/9786629
+ *  https://stackoverflow.com/a/9786629
  */
 
 package comblanchy.httpsgithub.whatsfordinner;
@@ -21,7 +21,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;

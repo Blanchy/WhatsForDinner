@@ -1,8 +1,12 @@
-/**
- * @author blanchypolangcos
+/*
+  @author blanchypolangcos
+ * Used references:
+ * "Dynamic Layouts using the Fragment Manager" Andrew T. Campbell
+ * http://www.cs.dartmouth.edu/~campbell/cs65/lecture09/lecture09.html
  *
- *
+ * "Android Programming Concepts" Trish Cornez, Richard Cornez
  */
+
 package comblanchy.httpsgithub.whatsfordinner;
 
 import android.app.Activity;

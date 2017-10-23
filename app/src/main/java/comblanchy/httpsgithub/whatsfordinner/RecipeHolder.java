@@ -1,6 +1,12 @@
-/**
- * @author blanchypolangcos
+/*
+  @author blanchypolangcos
+ * Used references:
+ * "Dynamic Layouts using the Fragment Manager" Andrew T. Campbell
+ * http://www.cs.dartmouth.edu/~campbell/cs65/lecture09/lecture09.html
+ *
+ * "Android Programming Concepts" Trish Cornez, Richard Cornez
  */
+
 
 package comblanchy.httpsgithub.whatsfordinner;
 
@@ -132,22 +138,6 @@ class RecipeHolder {
         }
         return ingreds;
     }
-
-/*
-    public int getIngIndex(String s) {
-        int i = -1;
-        boolean b = false;
-        int x = 0; //iterator
-        while (!b && x <= ingredients.size()-1) {
-            if (ingredients.get(x).equalsIgnoreCase(s)) {
-                i = x;
-                b = true;
-                x++;
-            }
-        }
-        return i;
-    }
-    */
 
     public ArrayList<String> getMeals() {
         ArrayList<String> al = new ArrayList<String>();
