@@ -2,7 +2,7 @@
 CS175 homework
 
 ##### Can also be found at https://github.com/SJSU-2017Fall-CS175/whats-for-dinner-Blanchy
-##### Youtube video: https://youtu.be/JLdrXbleUkw
+##### Youtube video: https://youtu.be/gbt947kdNFk
 
 ### References used:
 
