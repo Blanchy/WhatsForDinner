@@ -80,7 +80,7 @@ public class NewDishScreen extends AppCompatActivity {
         // make the first item null
         ArrayList<String> ingredientList = new ArrayList<String>();
         ingredientList.add("");
-        ingredientList.addAll(RecipeHolder.getInstance().getIngredients());
+        ingredientList.addAll(RecipeHolder.getInstance().getAvailIngreds());
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ingredientList);
         for (Spinner s : spinnerIngreds) {
@@ -105,7 +105,7 @@ public class NewDishScreen extends AppCompatActivity {
 
 
     }
-
+/*
     private void setSpinners(ArrayList<String> ingreds) {
 
         int i = 0; //ingredient of ingred
@@ -114,7 +114,7 @@ public class NewDishScreen extends AppCompatActivity {
             s.setSelection(RecipeHolder.getInstance().getIngIndex(ingreds.get(i)));
         }
     }
-
+*/
     public void addRecipe(View view) {
         Log.d("nd", "addRecipe");
         String recipeStr = recName.getText().toString();

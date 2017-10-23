@@ -7,6 +7,7 @@ package comblanchy.httpsgithub.whatsfordinner;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author blanchypolangcos
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 class RecipeHolder {
     private static final RecipeHolder ourInstance = new RecipeHolder();
     private ArrayList<Recipe> cookbook = new ArrayList<Recipe>();
-    private ArrayList<String> ingredients = new ArrayList<String>();
+    private HashMap<String, Integer> ingredients = new HashMap<String, Integer>();
     private ArrayList<Recipe> meals = new ArrayList<Recipe>();
 
     static RecipeHolder getInstance() {
@@ -24,9 +25,9 @@ class RecipeHolder {
     }
 
     private RecipeHolder() {
-        ingredients.add("sugar");
-        ingredients.add("spice");
-        ingredients.add("everything nice");
+        ingredients.put("sugar",1);
+        ingredients.put("spice",1);
+        ingredients.put("everything nice",1);
     }
 
     public void addRecipe(Recipe r) {
@@ -46,11 +47,37 @@ class RecipeHolder {
     }
 
     public void addIngredients(String s) {
-        ingredients.add(s);
+        s = s.toLowerCase();
+
+        if (ingredients.containsKey(s)) {
+            int newVal = ingredients.get(s) + 1;
+            ingredients.put(s, newVal);
+        }
+        else {
+            ingredients.put(s, 1);
+        }
+
     }
 
     public void addIngredients(ArrayList<String> ss) {
-        ingredients.addAll(ss);
+        for (String s : ss) {
+            s = s.toLowerCase();
+            addIngredients(s);
+        }
+    }
+
+    public void removeIngredients(String s) {
+        s = s.toLowerCase();
+
+        if (ingredients.containsKey(s)) {
+            if (ingredients.get(s) < 1) {
+                ingredients.remove(s);
+            }
+            else {
+                int newVal = ingredients.get(s) - 1;
+                ingredients.put(s, newVal);
+            }
+        }
     }
 
     public void addMeals(String s) {
@@ -60,7 +87,7 @@ class RecipeHolder {
 
             if (cookbook.get(i).getName().equals(s)) {
                 meals.add(cookbook.get(i));
-                ingredients.addAll(cookbook.get(i).getIngred());
+                addIngredients(cookbook.get(i).getIngred());
             }
             i++;
         }
@@ -92,10 +119,21 @@ class RecipeHolder {
         return al;
     }
 
-    public ArrayList<String> getIngredients() {
+    public HashMap<String, Integer> getIngredients() {
         return ingredients;
     }
 
+    public ArrayList<String> getAvailIngreds() {
+        ArrayList<String> ingreds = new ArrayList<String>();
+        for (String s : ingredients.keySet()) {
+            if (ingredients.get(s) > 0) {
+                ingreds.add(s);
+            }
+        }
+        return ingreds;
+    }
+
+/*
     public int getIngIndex(String s) {
         int i = -1;
         boolean b = false;
@@ -109,6 +147,7 @@ class RecipeHolder {
         }
         return i;
     }
+    */
 
     public ArrayList<String> getMeals() {
         ArrayList<String> al = new ArrayList<String>();
@@ -121,10 +160,6 @@ class RecipeHolder {
 
     public void setMeals(ArrayList<Recipe> meals) {
         this.meals = meals;
-    }
-
-    public void setIngredients(ArrayList<String> al) {
-        ingredients = al;
     }
 
 }
